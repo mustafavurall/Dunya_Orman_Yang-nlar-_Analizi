@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dünya Orman Yangınları Haritası</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+</head>
+
+
+<body>
+    <header>
+        <div class="container">
+          <h1>Dünya Orman Yangınları Haritası</h1>   
+          <nav>
+            <ul>
+              
+              <li><a class="as" href="#">Ana Sayfa</a></li>
+              <li><a href="http://127.0.0.1:51261/">Grafikler</a></li>
+
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <div id="grafikler">
+        <!-- Pasta grafiğinin gösterileceği yer -->
+        {{ pasta_grafigi | safe }}
+    </div>
+
+
+    <div class="box">
+        <img src="mum.gif" width="400" heigh="400" >
+    
+    </div>
+
+  
+    
+    <div class="button">
+        <button class="btn btn1" id="openMapButton1">2002 Ocak</button>
+    
+        <script>
+            // Butona tıklandığında haritayı açan JavaScript fonksiyonu
+            function openMap1() {
+                window.open('Orman_Yangınları_Ocak_Days.html');
+            }
+    
+            // Buton öğesini bulma ve tıklama olayına openMap1 fonksiyonunu bağlama
+            document.getElementById('openMapButton1').addEventListener('click', openMap1);
+        </script>
+    
+        <button class="btn btn2" id="openMapButton2">2012 Ocak</button>
+    
+        <script>
+            // Butona tıklandığında haritayı açan JavaScript fonksiyonu
+            function openMap2() {
+                window.open('Orman_Yangınları_Ocak_2Days.html');
+            }
+    
+            // Buton öğesini bulma ve tıklama olayına openMap2 fonksiyonunu bağlama
+            document.getElementById('openMapButton2').addEventListener('click', openMap2);
+        </script>
+    
+        <button class="btn btn3" id="openMapButton3">2022 Ocak</button>
+    
+        <script>
+            // Butona tıklandığında haritayı açan JavaScript fonksiyonu
+            function openMap3() {
+                window.open('Orman_Yangınları_Ocak_3Days.html');
+            }
+    
+            // Buton öğesini bulma ve tıklama olayına openMap3 fonksiyonunu bağlama
+            document.getElementById('openMapButton3').addEventListener('click', openMap3);
+        </script>
+    </div>
+    
+
+        <footer>
+            <p>Telif Hakkı 2024 Dünya Orman Yangınları</p>
+            
+        
+          </footer>
+
+          <script src="script.js"></script>
+</body>
+</html>
+
+
+
