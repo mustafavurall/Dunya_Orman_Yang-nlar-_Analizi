@@ -1,0 +1,187 @@
+body{
+    margin: 0;
+    padding: 0;
+    background:  url(orman.webp);
+    background-size: cover;
+}
+.box{
+    width: 350px;
+
+    
+    padding: 40px ;
+    text-align: center ;
+    margin:auto;
+    margin-top: auto;
+    color:aliceblue;
+    font-family:sans-serif;
+}
+.box img{
+    border-radius: 50%;
+    width:300px ;
+    height:300px ;
+    cursor:pointer ;
+    transition:0.5;
+}
+.box img:hover{
+    transform: scale(0.9); 
+}
+.box h1{
+    font-size:40px;
+    letter-spacing:4px;
+    font-weight:100;
+}
+.box h5{
+    font-size:20px;
+    letter-spacing:4px;
+    font-weight:100;
+}
+.box p{
+    text-align:justify;
+}
+ul{
+    margin:0;
+    padding:0;
+}
+.box li{
+    display:inline-block;
+    margin:6px;
+    list-style: none;
+}
+.box li a{
+    color: aliceblue;
+    font-size:60px;
+    transition: all ease-in-out 250ms;
+}
+.box li a:hover{
+    color:#b9b9b9 ;
+}
+.button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.btn {
+    background: none;
+    border:2px solid #9a142b;
+    font-size: 14px;
+    font-family: "Tahoma",sans-serif;
+    text-transform: uppercase;
+    padding:  12px 20px;
+    min-width: 200px;
+    margin: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.4s linear;
+}
+
+.btn:hover{
+    color: aliceblue;
+}
+
+.btn::before{
+content:"";
+position: absolute;
+left: 0;
+top: 0;
+width: 50%;
+height:50px;
+background: #9a142b;
+z-index: -1;
+transition: transform 0.5s;
+transform-origin: 0 0;
+transition-timing-function: cubic-bezier(0.5, 1.6, 0.4, 0.7);
+}
+
+.btn1::before{
+    transform: scaleX(0);
+}
+
+.btn1:hover::before{
+    transform: scaleX(1);
+}
+
+.btn2::before{
+    transform: scaleY(0);
+}
+
+.btn2:hover::before{
+    transform: scaleY(1);
+}
+.btn3::before{
+    transform: scaleX(0);
+}
+
+.btn3:hover::before{
+    transform: scaleX(1);
+}
+
+.btn4::before{
+    transform: scaleY(0);
+}
+
+.btn4:hover::before{
+    transform: scaleY(1);
+}
+.btn5::before{
+    transform: scaleX(0);
+}
+
+.btn5:hover::before{
+    transform: scaleX(1);
+}
+
+
+header .container {  /* BAŞLIK BÖLÜMÜ  */
+    justify-content: center; /* YATAY ORTALAR   */
+    align-items: center; /*  DİKEY ORTALAR */
+    text-align: center; /*  METİNLERİ ORTALAR */
+    width: 20; /* GENİŞLİĞİ BELİRLER   */
+ }
+
+  header {
+    background: linear-gradient(#e75b28,#9a142b) ;
+    color: #fff; 
+    padding: 1px; /* KENAR BOŞLUKLARI  */
+  }
+  
+  header h1 {
+    padding-bottom: 1px;
+  }
+  
+  nav ul li {
+    display: inline;
+    margin-right: 20px;
+  }
+  
+  nav ul li a { /* LİSTE ÖĞELERİNİN STİLİ  */
+    color: #fff;
+  }
+
+
+  .as {
+    color: #cba048;
+  }
+
+  .pr{
+    color: #cba048;
+  }
+  
+
+  footer { /* ALT BÖLÜMLER  */
+    color: #342020;
+    background-color: #0a0606;
+    padding: 5px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    
+    
+  }
+  
+
+footer p {
+    color: #9a142b;
+}
