@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2002 Yaz Ayları Orman Yangınları</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <style>
+        
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+    
+        h2 {
+            font-family: 'Roboto', sans-serif; /* Roboto yazı tipini başlıkta kullanın */
+            /* Diğer başlık özellikleri buraya eklenebilir */
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden; /* Yatay kaydırma çubuğunu gizler */
+            overflow-y: hidden; /* Dikey kaydırma çubuğunu gizler */
+            background-color: #f0f0f0; /* Arka plan rengi */
+        }
+
+        #map {
+            height: 100vh;
+            width: 100%;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .button-container-left {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.5); /* Şeffaf arka plan */
+            padding: 10px;
+            border-radius: 8px;
+            z-index: 1000; /* Butonların haritanın üstünde kalmasını sağlar */
+        }
+        .button-container-center {
+            position: fixed;
+            bottom: 20px; /* Sayfanın alt kısmından 20px yukarıda */
+            right: 20px; /* Sayfanın sağ kısmından 20px içeride */
+            background-color: rgba(255, 255, 255, 0.5); /* Şeffaf arka plan */
+            padding: 10px;
+            border-radius: 8px;
+            z-index: 1000; /* Sayfanın diğer içeriklerinin üstünde kalmasını sağlar */
+        }
+    
+        .button-container-center button {
+            margin: 5px;
+        }
+
+        .button-container-right {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(255, 255, 255, 0.5); /* Şeffaf arka plan */
+            padding: 10px;
+            border-radius: 8px;
+            z-index: 1000; /* Butonların haritanın üstünde kalmasını sağlar */
+        }
+
+        .year-button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: rgba(255, 255, 255, 0.5); /* Şeffaf arka plan */
+            border: none;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .year-2002 {
+            background-color: blue; /* 2002 butonlarının rengi */
+        }
+
+        .year-2002:hover {
+            background-color: darkblue; /* 2002 butonlarının fare üzerine geldiğinde rengi */
+        }
+
+        .year-2007 {
+            background-color: magenta; /* 2007 butonlarının rengi */
+        }
+
+        .year-2007:hover {
+            background-color: darkmagenta; /* 2007 butonlarının fare üzerine geldiğinde rengi */
+        }
+
+        .year-2012 {
+            background-color: orange; /* 2012 butonlarının rengi */
+        }
+
+        .year-2012:hover {
+            background-color: darkorange; /* 2012 butonlarının fare üzerine geldiğinde rengi */
+        }
+
+        .year-2017 {
+            background-color: turquoise; /* 2017 butonlarının rengi */
+        }
+
+        .year-2017:hover {
+            background-color: darkturquoise; /* 2017 butonlarının fare üzerine geldiğinde rengi */
+        }
+
+        .year-2022 {
+            background-color: red; /* 2022 butonlarının rengi */
+        }
+
+        .year-2022:hover {
+            background-color: darkred; /* 2022 butonlarının fare üzerine geldiğinde rengi */
+        }
+        .all-years {
+            background-color: gray; /* Tüm Yıllar butonunun rengi */
+        }
+
+        .all-years:hover {
+            background-color: darkgray; /* Tüm Yıllar butonunun fare üzerine geldiğinde rengi */
+        }
+        .year-sutun {
+            background-color: rgb(225, 67, 36); /* Tüm Yıllar butonunun rengi */
+        }
+
+        .year-sutun:hover {
+            background-color: darkgray; /* Tüm Yıllar butonunun fare üzerine geldiğinde rengi */
+        }
+
+        .year-pasta {
+            background-color: rgb(225, 67, 36); /* Tüm Yıllar butonunun rengi */
+        }
+
+        .year-pasta:hover {
+            background-color: darkgray; /* Tüm Yıllar butonunun fare üzerine geldiğinde rengi */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="button-container-left">
+            <h2 style="margin-bottom: 10px; text-align: center;">VERİLERLE GÖRSELLEŞTİRME</h2>
+            <button class="year-button year-2002" onclick="navigateToPage('y2002.html')">2002</button>
+            <button class="year-button year-2007" onclick="navigateToPage('y2007.html')">2007</button>
+            <button class="year-button year-2012" onclick="navigateToPage('y2012.html')">2012</button>
+            <button class="year-button year-2017" onclick="navigateToPage('y2017.html')">2017</button>
+            <button class="year-button year-2022" onclick="navigateToPage('y2022.html')">2022</button>
+        </div>
+
+        <div class="button-container-right">
+            <h2 style="margin-bottom: 10px; text-align: center;">GRAFLARLA GÖRSELLEŞTİRME</h2>
+            <button class="year-button year-2002" onclick="navigateToPage('2002_index.html')">2002</button>
+            <button class="year-button year-2007" onclick="navigateToPage('2007_index.html')">2007</button>
+            <button class="year-button year-2012" onclick="navigateToPage('2012_index.html')">2012</button>
+            <button class="year-button year-2017" onclick="navigateToPage('2017_index.html')">2017</button>
+            <button class="year-button year-2022" onclick="navigateToPage('2022_index.html')">2022</button>
+            <button class="year-button all-years" onclick="navigateToPage('Hepsi_index.html')">Tüm Yıllar</button>
+        </div>
+        <div class="button-container-center">
+            <h2 style="margin-bottom: 10px; text-align: center;">GRAFİKLER</h2>
+            <button class="year-button year-pasta" onclick="navigateToPage('pasta.html')">Pasta Grafiği</button>
+            <button class="year-button year-sutun" onclick="navigateToPage('sutun.html')">Sütun Grafiği</button>
+            
+        </div>
+    </div>
+    
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script src="2017_data.js"></script>
+    <script src="y2017.js"></script>
+    <script>
+        function navigateToPage(page) {
+            window.location.href = page;
+        }
+
+        var map = L.map('map').setView([39.0, 35.0], 6); // Türkiye'nin ortalama koordinatları
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '© OpenStreetMap'
+        }).addTo(map);
+    </script>
+</body>
+</html>
